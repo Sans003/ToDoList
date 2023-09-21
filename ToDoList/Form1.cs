@@ -11,6 +11,11 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using MetroFramework.Forms;
 using Microsoft.VisualBasic;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity;
+using System.Linq.Expressions;
+using System.Diagnostics;
+using System.ComponentModel.DataAnnotations;
 
 namespace ToDoList
 {
@@ -24,6 +29,27 @@ namespace ToDoList
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            using (var db = new ToDoDB())
+            {
+                try
+                {
+                    var items = from b in db.ToDoItems
+                                orderby b.Importance
+                                select b;
+                    if (items != null)
+                    {
+                        foreach (var item in items)
+                        {
+                            checkedListBox1.Items.Add($"{item.Name} - {item.Importance}");
+                        }
+                        db.SaveChanges();
+                    }
+                }
+                catch 
+                {
+                    Debug.Write("No Items in DB");
+                }
+            }
         }
 
         public static string CustomTextDialog(string title, string prompt, ref string value)
@@ -64,19 +90,61 @@ namespace ToDoList
 
             DialogResult result = form.ShowDialog();
             value = textBox.Text;
-            return Convert.ToString(value);
+            return value.ToString();
         }
 
         private void add_btn_Click(object sender, EventArgs e)
         {
-            string value = "very important thing";
-            var textValue = CustomTextDialog("Add Item", "Input To-Do Text", ref value);
-            checkedListBox1.Items.Add(textValue);
+            using (var db = new ToDoDB())
+            {
+                string value = "very important thing";
+                var textValue = CustomTextDialog("Add Item", "Text Input To-Do Text", ref value);
+                value = "";
+                var Priority = CustomTextDialog("Add Priority", "Priority Input To-Do Text", ref value);
+                checkedListBox1.Items.Add($"{textValue} - {Priority}");
+                var item = new ToDoItem { Name = textValue , Importance = int.Parse(Priority)};
+                db.ToDoItems.Add(item);
+                db.SaveChanges();
+            }
         }
 
         private void rem_btn_Click(object sender, EventArgs e)
         {
-            checkedListBox1.Items.Remove(checkedListBox1.SelectedItem);
+            using (var db = new ToDoDB())
+            {
+                var selItem = checkedListBox1.SelectedItem;
+                checkedListBox1.Items.Remove(selItem);
+                var item = new ToDoItem { Name = selItem.ToString() };
+                var dbItem = db.ToDoItems.Find(selItem.ToString());
+                if (dbItem != null)
+                {
+                    db.ToDoItems.Remove(dbItem);
+                }
+                db.SaveChanges();
+            }
         }
+        public void populateCheckedListBox()
+        {
+            checkedListBox1.Items.Clear();
+
+        }
+
+        private void edit_btn_Click(object sender, EventArgs e)
+        {
+            string ref_val = $"{checkedListBox1.SelectedItem}";
+            var value = CustomTextDialog($"Edit {checkedListBox1.SelectedItem}", "Enter New Title", ref ref_val);
+            checkedListBox1.SelectedItem = value;
+        }
+
+    }
+    public class ToDoItem
+    {
+        [Key]
+        public string Name { get; set; }
+        public int Importance { get; set; }
+    }
+    public class ToDoDB : DbContext
+    {
+        public DbSet<ToDoItem> ToDoItems { get; set; }
     }
 }
