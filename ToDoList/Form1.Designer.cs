@@ -30,189 +30,142 @@ namespace ToDoList
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.add_btn = new System.Windows.Forms.Button();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.rem_btn = new System.Windows.Forms.Button();
-            this.urgency_btn = new System.Windows.Forms.Button();
-            this.edit_btn = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.stupidDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.stupidDataSet = new ToDoList.stupidDataSet();
-            this.Checked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Priority = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stupidDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stupidDataSet)).BeginInit();
-            this.SuspendLayout();
+            add_btn = new System.Windows.Forms.Button();
+            checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            rem_btn = new System.Windows.Forms.Button();
+            urgency_btn = new System.Windows.Forms.Button();
+            edit_btn = new System.Windows.Forms.Button();
+            stupidDataSetBindingSource = new System.Windows.Forms.BindingSource(components);
+            stupidDataSet = new stupidDataSet();
+            ((System.ComponentModel.ISupportInitialize)stupidDataSetBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)stupidDataSet).BeginInit();
+            SuspendLayout();
             // 
             // add_btn
             // 
-            this.add_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.add_btn.AutoSize = true;
-            this.add_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(219)))), ((int)(((byte)(251)))));
-            this.add_btn.FlatAppearance.BorderSize = 0;
-            this.add_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(190)))), ((int)(((byte)(248)))));
-            this.add_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.add_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.add_btn.Location = new System.Drawing.Point(615, 94);
-            this.add_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.add_btn.Name = "add_btn";
-            this.add_btn.Size = new System.Drawing.Size(128, 61);
-            this.add_btn.TabIndex = 0;
-            this.add_btn.Text = "Add Entry";
-            this.add_btn.UseVisualStyleBackColor = false;
-            this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
+            add_btn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            add_btn.AutoSize = true;
+            add_btn.BackColor = Color.FromArgb(236, 219, 251);
+            add_btn.FlatAppearance.BorderSize = 0;
+            add_btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(220, 190, 248);
+            add_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            add_btn.ForeColor = Color.FromArgb(50, 50, 50);
+            add_btn.Location = new Point(615, 94);
+            add_btn.Margin = new System.Windows.Forms.Padding(0);
+            add_btn.Name = "add_btn";
+            add_btn.Size = new Size(128, 61);
+            add_btn.TabIndex = 0;
+            add_btn.Text = "Add Entry";
+            add_btn.UseVisualStyleBackColor = false;
+            add_btn.Click += add_btn_Click;
             // 
             // checkedListBox1
             // 
-            this.checkedListBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(219)))), ((int)(((byte)(251)))));
-            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.checkedListBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkedListBox1.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedListBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.HorizontalScrollbar = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(30, 83);
-            this.checkedListBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(10, 689);
-            this.checkedListBox1.TabIndex = 1;
-            this.checkedListBox1.ThreeDCheckBoxes = true;
+            checkedListBox1.BackColor = Color.FromArgb(236, 219, 251);
+            checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            checkedListBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            checkedListBox1.Font = new Font("Consolas", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            checkedListBox1.ForeColor = Color.FromArgb(50, 50, 50);
+            checkedListBox1.FormattingEnabled = true;
+            checkedListBox1.HorizontalScrollbar = true;
+            checkedListBox1.Location = new Point(30, 83);
+            checkedListBox1.Margin = new System.Windows.Forms.Padding(0);
+            checkedListBox1.Name = "checkedListBox1";
+            checkedListBox1.Size = new Size(569, 689);
+            checkedListBox1.TabIndex = 1;
+            checkedListBox1.ThreeDCheckBoxes = true;
             // 
             // rem_btn
             // 
-            this.rem_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rem_btn.AutoSize = true;
-            this.rem_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(219)))), ((int)(((byte)(251)))));
-            this.rem_btn.FlatAppearance.BorderSize = 0;
-            this.rem_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(190)))), ((int)(((byte)(248)))));
-            this.rem_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rem_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.rem_btn.Location = new System.Drawing.Point(615, 177);
-            this.rem_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.rem_btn.Name = "rem_btn";
-            this.rem_btn.Size = new System.Drawing.Size(128, 61);
-            this.rem_btn.TabIndex = 2;
-            this.rem_btn.Text = "Remove Entry";
-            this.rem_btn.UseVisualStyleBackColor = false;
-            this.rem_btn.Click += new System.EventHandler(this.rem_btn_Click);
+            rem_btn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            rem_btn.AutoSize = true;
+            rem_btn.BackColor = Color.FromArgb(236, 219, 251);
+            rem_btn.FlatAppearance.BorderSize = 0;
+            rem_btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(220, 190, 248);
+            rem_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            rem_btn.ForeColor = Color.FromArgb(50, 50, 50);
+            rem_btn.Location = new Point(615, 177);
+            rem_btn.Margin = new System.Windows.Forms.Padding(0);
+            rem_btn.Name = "rem_btn";
+            rem_btn.Size = new Size(128, 61);
+            rem_btn.TabIndex = 2;
+            rem_btn.Text = "Remove Entry";
+            rem_btn.UseVisualStyleBackColor = false;
+            rem_btn.Click += rem_btn_Click;
             // 
             // urgency_btn
             // 
-            this.urgency_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.urgency_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(219)))), ((int)(((byte)(251)))));
-            this.urgency_btn.FlatAppearance.BorderSize = 0;
-            this.urgency_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(190)))), ((int)(((byte)(248)))));
-            this.urgency_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.urgency_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.urgency_btn.Location = new System.Drawing.Point(615, 343);
-            this.urgency_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.urgency_btn.Name = "urgency_btn";
-            this.urgency_btn.Size = new System.Drawing.Size(128, 61);
-            this.urgency_btn.TabIndex = 3;
-            this.urgency_btn.Text = "Change Importance";
-            this.urgency_btn.UseVisualStyleBackColor = false;
+            urgency_btn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            urgency_btn.BackColor = Color.FromArgb(236, 219, 251);
+            urgency_btn.FlatAppearance.BorderSize = 0;
+            urgency_btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(220, 190, 248);
+            urgency_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            urgency_btn.ForeColor = Color.FromArgb(50, 50, 50);
+            urgency_btn.Location = new Point(615, 343);
+            urgency_btn.Margin = new System.Windows.Forms.Padding(0);
+            urgency_btn.Name = "urgency_btn";
+            urgency_btn.Size = new Size(128, 61);
+            urgency_btn.TabIndex = 3;
+            urgency_btn.Text = "Change Importance";
+            urgency_btn.UseVisualStyleBackColor = false;
             // 
             // edit_btn
             // 
-            this.edit_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.edit_btn.AutoSize = true;
-            this.edit_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(219)))), ((int)(((byte)(251)))));
-            this.edit_btn.FlatAppearance.BorderSize = 0;
-            this.edit_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(190)))), ((int)(((byte)(248)))));
-            this.edit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.edit_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.edit_btn.Location = new System.Drawing.Point(615, 260);
-            this.edit_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.edit_btn.Name = "edit_btn";
-            this.edit_btn.Size = new System.Drawing.Size(128, 61);
-            this.edit_btn.TabIndex = 4;
-            this.edit_btn.Text = "Edit";
-            this.edit_btn.UseVisualStyleBackColor = false;
-            this.edit_btn.Click += new System.EventHandler(this.edit_btn_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(219)))), ((int)(((byte)(251)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Checked,
-            this.Title,
-            this.Priority});
-            this.dataGridView1.DataSource = this.stupidDataSetBindingSource;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(160)))), ((int)(((byte)(243)))));
-            this.dataGridView1.Location = new System.Drawing.Point(43, 83);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(550, 689);
-            this.dataGridView1.TabIndex = 5;
+            edit_btn.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            edit_btn.AutoSize = true;
+            edit_btn.BackColor = Color.FromArgb(236, 219, 251);
+            edit_btn.FlatAppearance.BorderSize = 0;
+            edit_btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(220, 190, 248);
+            edit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            edit_btn.ForeColor = Color.FromArgb(50, 50, 50);
+            edit_btn.Location = new Point(615, 260);
+            edit_btn.Margin = new System.Windows.Forms.Padding(0);
+            edit_btn.Name = "edit_btn";
+            edit_btn.Size = new Size(128, 61);
+            edit_btn.TabIndex = 4;
+            edit_btn.Text = "Edit";
+            edit_btn.UseVisualStyleBackColor = false;
+            edit_btn.Click += edit_btn_Click;
             // 
             // stupidDataSetBindingSource
             // 
-            this.stupidDataSetBindingSource.DataSource = this.stupidDataSet;
-            this.stupidDataSetBindingSource.Position = 0;
+            stupidDataSetBindingSource.DataSource = stupidDataSet;
+            stupidDataSetBindingSource.Position = 0;
             // 
             // stupidDataSet
             // 
-            this.stupidDataSet.DataSetName = "stupidDataSet";
-            this.stupidDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // Checked
-            // 
-            this.Checked.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Checked.HeaderText = "Checked";
-            this.Checked.Name = "Checked";
-            this.Checked.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Checked.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Title
-            // 
-            this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Title.HeaderText = "Title";
-            this.Title.Name = "Title";
-            // 
-            // Priority
-            // 
-            this.Priority.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Priority.HeaderText = "Priority";
-            this.Priority.Name = "Priority";
+            stupidDataSet.DataSetName = "stupidDataSet";
+            stupidDataSet.Namespace = "http://tempuri.org/stupidDataSet.xsd";
+            stupidDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(160)))), ((int)(((byte)(243)))));
-            this.ClientSize = new System.Drawing.Size(756, 800);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.edit_btn);
-            this.Controls.Add(this.urgency_btn);
-            this.Controls.Add(this.rem_btn);
-            this.Controls.Add(this.checkedListBox1);
-            this.Controls.Add(this.add_btn);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(1050, 1385);
-            this.Name = "Form1";
-            this.Padding = new System.Windows.Forms.Padding(30, 83, 30, 28);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Form1";
-            this.TransparencyKey = System.Drawing.SystemColors.MenuText;
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stupidDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stupidDataSet)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(9F, 18F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoSize = true;
+            BackColor = Color.FromArgb(203, 160, 243);
+            ClientSize = new Size(756, 800);
+            Controls.Add(edit_btn);
+            Controls.Add(urgency_btn);
+            Controls.Add(rem_btn);
+            Controls.Add(checkedListBox1);
+            Controls.Add(add_btn);
+            Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new System.Windows.Forms.Padding(4);
+            MaximumSize = new Size(1050, 1385);
+            Name = "Form1";
+            Padding = new System.Windows.Forms.Padding(30, 83, 30, 28);
+            StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            Text = "Form1";
+            TransparencyKey = SystemColors.MenuText;
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)stupidDataSetBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)stupidDataSet).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -222,12 +175,8 @@ namespace ToDoList
         private System.Windows.Forms.Button rem_btn;
         private System.Windows.Forms.Button urgency_btn;
         private System.Windows.Forms.Button edit_btn;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource stupidDataSetBindingSource;
         private stupidDataSet stupidDataSet;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Checked;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Priority;
     }
 }
 
